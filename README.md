@@ -67,5 +67,3 @@ The backend is built using **Node.js** and **Express**.
 - Render (Fullstack deployment)
 
 ---
-
- └── server.js
