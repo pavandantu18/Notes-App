@@ -1,11 +1,15 @@
-/* Global reset */
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Page background */
+/* =========================
+   PAGE BACKGROUND
+========================= */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #0f172a, #020617);
@@ -13,23 +17,30 @@ body {
   color: #e5e7eb;
 }
 
-/* Notes container */
+/* =========================
+   NOTES GRID
+========================= */
 .notes {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-/* Note card */
+/* =========================
+   NOTE CARD
+========================= */
 .note {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
-  border-radius: 18px;
-  padding: 1.5rem;
+  border-radius: 20px;
+  padding: 1.75rem;
+
+  display: flex;
+  flex-direction: column;
 
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
@@ -39,32 +50,100 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
 .note:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-5px);
   box-shadow:
-    0 28px 60px rgba(0, 0, 0, 0.6),
+    0 30px 60px rgba(0, 0, 0, 0.6),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* Title */
+/* =========================
+   NOTE CONTENT
+========================= */
 .note h1 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   color: #f8fafc;
+  margin-bottom: 0.4rem;
 }
 
-/* Description */
 .note p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #cbd5f5;
+  margin-bottom: 1.4rem;
 }
 
-/* Create note form container */
+/* =========================
+   NOTE ACTIONS
+========================= */
+.note-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* =========================
+   UPDATE BUTTON
+========================= */
+.update-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 12px;
+
+  background: rgba(34, 197, 94, 0.16);
+  color: #4ade80;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.update-btn:hover {
+  background: rgba(34, 197, 94, 0.26);
+  transform: translateY(-1px);
+}
+
+.update-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+.delete-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 12px;
+
+  background: rgba(239, 68, 68, 0.14);
+  color: #f87171;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(239, 68, 68, 0.26);
+  transform: translateY(-1px);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   CREATE NOTE FORM
+========================= */
 .note-create-form {
-  max-width: 700px;
+  max-width: 720px;
   margin: 2.5rem auto 0;
   padding: 1.75rem 2rem;
 
@@ -74,7 +153,7 @@ body {
 
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
-  border-radius: 20px;
+  border-radius: 22px;
 
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
@@ -82,13 +161,15 @@ body {
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-/* Inputs */
+/* =========================
+   FORM INPUTS
+========================= */
 .note-create-form input {
   flex: 1;
-  padding: 0.75rem 0.9rem;
-  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
 
-  background: rgba(2, 6, 23, 0.6);
+  background: rgba(2, 6, 23, 0.65);
   border: 1px solid rgba(148, 163, 184, 0.25);
 
   color: #f8fafc;
@@ -102,55 +183,224 @@ body {
   color: #94a3b8;
 }
 
-/* Input focus */
 .note-create-form input:focus {
   border-color: #38bdf8;
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
 }
 
-/* Button */
+/* =========================
+   CREATE BUTTON
+========================= */
 .note-create-form button {
-  padding: 0.75rem 1.3rem;
+  padding: 0.75rem 1.4rem;
   border-radius: 14px;
 
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   color: #020617;
 
-  font-weight: 600;
   font-size: 0.95rem;
+  font-weight: 600;
+
   border: none;
   cursor: pointer;
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Button hover */
 .note-create-form button:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(56, 189, 248, 0.45);
 }
 
-/* Button active */
 .note-create-form button:active {
   transform: translateY(0);
   box-shadow: 0 6px 14px rgba(56, 189, 248, 0.35);
 }
 
-/* Mobile responsiveness */
+/* =========================
+   MODAL BACKDROP
+========================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* =========================
+   MODAL CARD
+========================= */
+.modal {
+  width: 100%;
+  max-width: 480px;
+  padding: 1.75rem;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================
+   MODAL CONTENT
+========================= */
+.modal h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #f8fafc;
+}
+
+.modal label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: #94a3b8;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+/* Disabled title */
+.modal input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Textarea */
+.modal textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* =========================
+   MODAL ACTIONS
+========================= */
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+
+/* Hide text caret (blinking cursor) */
+input,
+textarea {
+  caret-color: #38bdf8;
+}
+
+body {
+  caret-color: transparent;
+}
+
+/* =========================
+   SPINNER
+========================= */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top: 2px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
+   TOAST CONTAINER
+========================= */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+
+  min-width: 220px;
+  max-width: 320px;
+  padding: 0.75rem 1.1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  animation: toast-slide-in 0.35s ease forwards;
+  z-index: 3000;
+}
+
+/* =========================
+   SUCCESS TOAST
+========================= */
+.toast.success {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+/* =========================
+   ERROR TOAST
+========================= */
+.toast.error {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 640px) {
+  .notes {
+    padding: 2rem 1rem;
+  }
+
   .note-create-form {
     flex-direction: column;
   }
 
   .note-create-form button {
     width: 100%;
-  }
-}
-
-
-/* Responsive tweaks */
-@media (max-width: 640px) {
-  .notes {
-    padding: 2rem 1rem;
   }
 }
