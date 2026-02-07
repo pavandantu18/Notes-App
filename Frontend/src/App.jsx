@@ -22,7 +22,7 @@ const App = () => {
   ========================= */
   const fetchNotes = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/notes')
+      const res = await axios.get('https://notes-app-a535.onrender.com/api/notes')
       setNotes(res.data.notes)
     } catch {
       showToast('Failed to fetch notes', 'error')
@@ -59,7 +59,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:3000/api/notes', {
+      await axios.post('https://notes-app-a535.onrender.com/api/notes', {
         title,
         description
       })
@@ -80,7 +80,7 @@ const App = () => {
     if (!confirmed) return
 
     try {
-      await axios.delete(`http://localhost:3000/api/notes/${id}`)
+      await axios.delete(`https://notes-app-a535.onrender.com/api/notes/${id}`)
       fetchNotes()
       showToast('Note deleted')
     } catch {
@@ -104,7 +104,7 @@ const App = () => {
     setIsSaving(true)
     try {
       await axios.patch(
-        `http://localhost:3000/api/notes/${selectedNote._id}`,
+        `https://notes-app-a535.onrender.com/${selectedNote._id}`,
         { description: editDescription }
       )
 
